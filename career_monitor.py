@@ -19,19 +19,14 @@ TARGET_URLS = {
         "name": "Google Data Jobs",
         "selector": "span.SWhIm"
     },
-    "google_ai": {
-        "url": "https://www.google.com/about/careers/applications/jobs/results?location=United%20States&target_level=MID&target_level=EARLY&employment_type=FULL_TIME&degree=ASSOCIATE&degree=BACHELORS&degree=MASTERS&q=%22AI%22&sort_by=relevance",
-        "name": "Google AI Jobs", 
-        "selector": "span.SWhIm"
-    },
-    "google_ml": {
-        "url": "https://www.google.com/about/careers/applications/jobs/results?location=United%20States&target_level=MID&target_level=EARLY&employment_type=FULL_TIME&degree=ASSOCIATE&degree=BACHELORS&degree=MASTERS&q=%22Machine%20Learning%22&sort_by=relevance",
-        "name": "Google ML Jobs",
-        "selector": "span.SWhIm"
-    },
     "google_data_engineer": {
         "url": "https://www.google.com/about/careers/applications/jobs/results?q=%22data%20engineer%22&sort_by=date&target_level=MID&target_level=EARLY&location=United%20States&employment_type=FULL_TIME",
         "name": "Google Data Engineer Jobs",
+        "selector": "span.SWhIm"
+    },
+    "google_analyst": {
+        "url": "https://www.google.com/about/careers/applications/jobs/results?location=United%20States&target_level=MID&target_level=EARLY&employment_type=FULL_TIME&degree=ASSOCIATE&degree=BACHELORS&degree=MASTERS&q=%22Analyst%22&sort_by=date",
+        "name": "Google Analyst Jobs",
         "selector": "span.SWhIm"
     }
 }
@@ -98,32 +93,57 @@ def save_job_counts(counts):
         print(f"Error saving job counts: {str(e)}")
 
 def send_email_alert(changes):
-    """Send email alert when job counts change"""
+    """Send personalized email alert when job counts change"""
     if not all([SENDER_EMAIL, SENDER_PASSWORD, RECIPIENT_EMAIL]):
         print("Email configuration incomplete. Skipping email alert.")
         return False
     
     try:
+        # Create personalized subject based on what changed
+        if len(changes) == 1:
+            source_name = list(changes.values())[0]['name']
+            change = list(changes.values())[0]['current'] - list(changes.values())[0]['previous']
+            change_text = f"+{change}" if change > 0 else str(change)
+            subject = f"🚨 {source_name} Alert: {change_text} jobs"
+        else:
+            subject = f"🚨 Multiple Job Alerts: {len(changes)} categories changed"
+        
         # Create message
         msg = MIMEMultipart()
         msg['From'] = SENDER_EMAIL
         msg['To'] = RECIPIENT_EMAIL
-        msg['Subject'] = f"Career Monitoring Alert: {len(changes)} Job Source(s) Changed"
+        msg['Subject'] = subject
         
-        # Build email body
-        body = "Career Job Monitoring Alert\n\n"
-        body += f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+        # Build personalized email body
+        body = "🎯 Google Careers Job Monitoring Alert\n"
+        body += "=" * 50 + "\n\n"
+        body += f"⏰ Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+        
+        # Add personalized message based on changes
+        total_new_jobs = sum(data['current'] - data['previous'] for data in changes.values() if data['current'] > data['previous'])
+        total_removed_jobs = sum(data['previous'] - data['current'] for data in changes.values() if data['current'] < data['previous'])
+        
+        if total_new_jobs > 0:
+            body += f"🎉 Great news! {total_new_jobs} new job(s) posted!\n\n"
+        if total_removed_jobs > 0:
+            body += f"📉 {total_removed_jobs} job(s) were removed.\n\n"
+        
+        body += "📊 DETAILED BREAKDOWN:\n"
+        body += "-" * 30 + "\n\n"
         
         for source, data in changes.items():
             change = data['current'] - data['previous']
             change_text = f"+{change}" if change > 0 else str(change)
-            body += f"📊 {data['name']}:\n"
+            emoji = "📈" if change > 0 else "📉" if change < 0 else "➡️"
+            
+            body += f"{emoji} {data['name']}:\n"
             body += f"   • Previous: {data['previous']} jobs\n"
             body += f"   • Current: {data['current']} jobs\n"
             body += f"   • Change: {change_text} jobs\n"
-            body += f"   • URL: {data['url']}\n\n"
+            body += f"   • 🔗 View Jobs: {data['url']}\n\n"
         
-        body += "This is an automated alert from your career monitoring system."
+        body += "🤖 This is an automated alert from your career monitoring system.\n"
+        body += "💡 Set up job alerts on Google Careers for instant notifications!"
         
         msg.attach(MIMEText(body, 'plain'))
         
@@ -135,7 +155,7 @@ def send_email_alert(changes):
         server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, text)
         server.quit()
         
-        print(f"Email alert sent successfully! {len(changes)} source(s) changed.")
+        print(f"📧 Personalized email alert sent! {len(changes)} source(s) changed.")
         return True
         
     except Exception as e:
