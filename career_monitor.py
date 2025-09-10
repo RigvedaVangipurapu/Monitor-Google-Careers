@@ -28,6 +28,11 @@ TARGET_URLS = {
         "url": "https://www.google.com/about/careers/applications/jobs/results?location=United%20States&target_level=MID&target_level=EARLY&employment_type=FULL_TIME&degree=ASSOCIATE&degree=BACHELORS&degree=MASTERS&q=%22Machine%20Learning%22&sort_by=relevance",
         "name": "Google ML Jobs",
         "selector": "span.SWhIm"
+    },
+    "google_data_engineer": {
+        "url": "https://www.google.com/about/careers/applications/jobs/results?q=%22data%20engineer%22&sort_by=date&target_level=MID&target_level=EARLY&location=United%20States&employment_type=FULL_TIME",
+        "name": "Google Data Engineer Jobs",
+        "selector": "span.SWhIm"
     }
 }
 
@@ -41,16 +46,16 @@ SENDER_EMAIL = os.getenv('SENDER_EMAIL', '')
 SENDER_PASSWORD = os.getenv('SENDER_PASSWORD', '')
 RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL', '')
 
-def extract_job_count(page):
+def extract_job_count(page, selector):
     """Extract the total job count from the career page"""
     print("Extracting job count...")
     
     try:
         # Wait for the job count element to load
-        page.wait_for_selector(JOB_COUNT_SELECTOR, timeout=10000)
+        page.wait_for_selector(selector, timeout=10000)
         
         # Get the job count element
-        job_count_element = page.query_selector(JOB_COUNT_SELECTOR)
+        job_count_element = page.query_selector(selector)
         
         if job_count_element:
             job_count_text = job_count_element.inner_text().strip()
@@ -166,7 +171,7 @@ def main():
                     page.goto(config['url'], wait_until="networkidle")
                     
                     # Extract job count
-                    current_count = extract_job_count(page)
+                    current_count = extract_job_count(page, config['selector'])
                     
                     if current_count is None:
                         print(f"Failed to extract job count for {config['name']}")
