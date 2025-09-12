@@ -15,7 +15,7 @@ from datetime import datetime
 # Configuration variables - Multiple URLs to monitor
 TARGET_URLS = {
     "google_data": {
-        "url": "https://www.google.com/about/careers/applications/jobs/results?location=United%20States&target_level=MID&target_level=EARLY&employment_type=FULL_TIME&degree=ASSOCIATE&degree=BACHELORS&degree=MASTERS&q=%22Data%22&sort_by=relevance",
+        "url": "https://www.google.com/about/careers/applications/jobs/results?location=United%20States&target_level=MID&target_level=EARLY&employment_type=FULL_TIME&degree=ASSOCIATE&degree=BACHELORS&degree=MASTERS&q=%22Data%22&sort_by=date",
         "name": "Google Data Jobs",
         "selector": "span.SWhIm"
     },
@@ -43,6 +43,7 @@ TARGET_URLS = {
 
 SCREENSHOT_PATH = "career_page_screenshot.png"
 KNOWN_JOBS_FILE = "known_job_counts.json"  # Changed to JSON for multiple URLs
+KNOWN_TOP_JOBS_FILE = "known_top_jobs.json"  # Track top 5 jobs for each category
 
 # Email configuration (will be set via environment variables in GitHub Actions)
 SMTP_SERVER = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
@@ -102,8 +103,108 @@ def save_job_counts(counts):
     except Exception as e:
         print(f"Error saving job counts: {str(e)}")
 
-def send_email_alert(changes):
-    """Send personalized email alert when job counts change"""
+def extract_top_jobs(page, max_jobs=5):
+    """Extract top job titles from the career page"""
+    try:
+        # Look for job titles - they're typically in h3 tags or similar
+        job_elements = page.query_selector_all('h3')
+        jobs = []
+        
+        # Filter out common non-job elements
+        filter_words = [
+            'skills & qualifications', 'organizations', 'sort by', 'clear filters',
+            'what do you want to do', 'locations', 'experience', 'degree', 'job types',
+            'follow life at google', 'more about us', 'related information', 'equal opportunity'
+        ]
+        
+        for element in job_elements:
+            job_title = element.inner_text().strip()
+            if (job_title and 
+                len(job_title) > 15 and  # Longer titles are more likely to be jobs
+                not any(word in job_title.lower() for word in filter_words) and
+                'engineer' in job_title.lower() or 'analyst' in job_title.lower() or 
+                'manager' in job_title.lower() or 'developer' in job_title.lower() or
+                'scientist' in job_title.lower() or 'specialist' in job_title.lower()):
+                jobs.append(job_title)
+                if len(jobs) >= max_jobs:
+                    break
+        
+        print(f"Extracted {len(jobs)} job titles")
+        return jobs[:max_jobs]  # Return only top 5
+        
+    except Exception as e:
+        print(f"Error extracting job titles: {str(e)}")
+        return []
+
+def load_known_top_jobs():
+    """Load previously known top jobs from JSON file"""
+    try:
+        if os.path.exists(KNOWN_TOP_JOBS_FILE):
+            with open(KNOWN_TOP_JOBS_FILE, 'r') as f:
+                return json.load(f)
+        return {}
+    except Exception as e:
+        print(f"Error loading known top jobs: {str(e)}")
+        return {}
+
+def save_top_jobs(top_jobs):
+    """Save top jobs to JSON file"""
+    try:
+        with open(KNOWN_TOP_JOBS_FILE, 'w') as f:
+            json.dump(top_jobs, f, indent=2)
+        print(f"Saved top jobs to {KNOWN_TOP_JOBS_FILE}")
+    except Exception as e:
+        print(f"Error saving top jobs: {str(e)}")
+
+def compare_top_jobs(current_jobs, previous_jobs, source_name):
+    """Compare current and previous top jobs and return changes"""
+    changes = []
+    
+    if not previous_jobs:
+        # First run - all jobs are new
+        for job in current_jobs:
+            changes.append({
+                'action': 'new',
+                'job_title': job,
+                'position': current_jobs.index(job) + 1
+            })
+        return changes
+    
+    # Check for new jobs
+    for i, job in enumerate(current_jobs):
+        if job not in previous_jobs:
+            changes.append({
+                'action': 'new',
+                'job_title': job,
+                'position': i + 1
+            })
+    
+    # Check for removed jobs
+    for job in previous_jobs:
+        if job not in current_jobs:
+            changes.append({
+                'action': 'removed',
+                'job_title': job,
+                'position': previous_jobs.index(job) + 1
+            })
+    
+    # Check for position changes
+    for i, job in enumerate(current_jobs):
+        if job in previous_jobs:
+            old_position = previous_jobs.index(job) + 1
+            new_position = i + 1
+            if old_position != new_position:
+                changes.append({
+                    'action': 'moved',
+                    'job_title': job,
+                    'old_position': old_position,
+                    'new_position': new_position
+                })
+    
+    return changes
+
+def send_email_alert(changes, job_changes=None):
+    """Send personalized email alert when job counts change or top jobs change"""
     if not all([SENDER_EMAIL, SENDER_PASSWORD, RECIPIENT_EMAILS]):
         print("Email configuration incomplete. Skipping email alert.")
         return False
@@ -143,6 +244,22 @@ def send_email_alert(changes):
             body += f"🎉 Great news! {total_new_jobs} new job(s) posted!\n\n"
         if total_removed_jobs > 0:
             body += f"📉 {total_removed_jobs} job(s) were removed.\n\n"
+        
+        # Add job changes if any
+        if job_changes:
+            body += "🆕 NEW JOB POSTINGS:\n"
+            body += "-" * 30 + "\n\n"
+            for source, changes_list in job_changes.items():
+                if changes_list:
+                    body += f"📋 {source}:\n"
+                    for change in changes_list:
+                        if change['action'] == 'new':
+                            body += f"   • #{change['position']}: {change['job_title']}\n"
+                        elif change['action'] == 'removed':
+                            body += f"   • ❌ Removed: {change['job_title']}\n"
+                        elif change['action'] == 'moved':
+                            body += f"   • 🔄 Moved: {change['job_title']} (#{change['old_position']} → #{change['new_position']})\n"
+                    body += "\n"
         
         body += "📊 DETAILED BREAKDOWN:\n"
         body += "-" * 30 + "\n\n"
@@ -192,11 +309,14 @@ def main():
             browser = p.chromium.launch(headless=True)  # Headless for GitHub Actions
             page = browser.new_page()
             
-            # Load previous job counts
+            # Load previous job counts and top jobs
             known_counts = load_known_job_counts()
+            known_top_jobs = load_known_top_jobs()
             current_counts = {}
+            current_top_jobs = {}
             changes = {}
             increases = {}  # Track only increases for email alerts
+            job_changes = {}  # Track changes in top jobs
             
             # Monitor each URL
             for source_key, config in TARGET_URLS.items():
@@ -218,6 +338,28 @@ def main():
                     previous_count = known_counts.get(source_key)
                     
                     print(f"Current count: {current_count}")
+                    
+                    # Extract top 5 jobs
+                    print("Extracting top 5 jobs...")
+                    current_jobs = extract_top_jobs(page)
+                    current_top_jobs[source_key] = current_jobs
+                    
+                    # Compare with previous top jobs
+                    previous_jobs = known_top_jobs.get(source_key, [])
+                    job_changes_list = compare_top_jobs(current_jobs, previous_jobs, config['name'])
+                    
+                    if job_changes_list:
+                        job_changes[config['name']] = job_changes_list
+                        print(f"Job changes detected: {len(job_changes_list)} changes")
+                        for change in job_changes_list:
+                            if change['action'] == 'new':
+                                print(f"  🆕 New: #{change['position']} {change['job_title']}")
+                            elif change['action'] == 'removed':
+                                print(f"  ❌ Removed: {change['job_title']}")
+                            elif change['action'] == 'moved':
+                                print(f"  🔄 Moved: {change['job_title']} (#{change['old_position']} → #{change['new_position']})")
+                    else:
+                        print("No job changes detected in top 5")
                     
                     if previous_count is None:
                         # First run for this source
@@ -252,20 +394,26 @@ def main():
             # Close browser
             browser.close()
             
-            # Send email ONLY if there were increases
-            if increases:
-                print(f"\n📧 Sending email alert for {len(increases)} increased source(s)...")
-                if send_email_alert(increases):
+            # Send email if there were increases OR job changes
+            if increases or job_changes:
+                print(f"\n📧 Sending email alert...")
+                if increases:
+                    print(f"  • {len(increases)} source(s) with increased job counts")
+                if job_changes:
+                    print(f"  • {len(job_changes)} source(s) with job changes")
+                
+                if send_email_alert(increases, job_changes):
                     print("Email alert sent successfully!")
                 else:
                     print("Failed to send email alert.")
             elif changes:
-                print(f"\n📊 {len(changes)} source(s) changed but no increases detected. No email sent.")
+                print(f"\n📊 {len(changes)} source(s) changed but no increases or job changes detected. No email sent.")
             else:
                 print("\n✅ No changes detected across all sources.")
             
-            # Update stored counts
+            # Update stored counts and top jobs
             save_job_counts(current_counts)
+            save_top_jobs(current_top_jobs)
             
             print("\n🎯 Multi-source monitoring completed successfully!")
             
