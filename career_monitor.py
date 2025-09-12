@@ -106,30 +106,18 @@ def save_job_counts(counts):
 def extract_top_jobs(page, max_jobs=5):
     """Extract top job titles from the career page"""
     try:
-        # Look for job titles - they're typically in h3 tags or similar
-        job_elements = page.query_selector_all('h3')
+        # Look for job titles with the specific class QJPWVe
+        job_elements = page.query_selector_all('h3.QJPWVe')
         jobs = []
-        
-        # Filter out common non-job elements
-        filter_words = [
-            'skills & qualifications', 'organizations', 'sort by', 'clear filters',
-            'what do you want to do', 'locations', 'experience', 'degree', 'job types',
-            'follow life at google', 'more about us', 'related information', 'equal opportunity'
-        ]
         
         for element in job_elements:
             job_title = element.inner_text().strip()
-            if (job_title and 
-                len(job_title) > 15 and  # Longer titles are more likely to be jobs
-                not any(word in job_title.lower() for word in filter_words) and
-                'engineer' in job_title.lower() or 'analyst' in job_title.lower() or 
-                'manager' in job_title.lower() or 'developer' in job_title.lower() or
-                'scientist' in job_title.lower() or 'specialist' in job_title.lower()):
+            if job_title and len(job_title) > 5:  # Basic validation
                 jobs.append(job_title)
                 if len(jobs) >= max_jobs:
                     break
         
-        print(f"Extracted {len(jobs)} job titles")
+        print(f"Extracted {len(jobs)} job titles from h3.QJPWVe elements")
         return jobs[:max_jobs]  # Return only top 5
         
     except Exception as e:

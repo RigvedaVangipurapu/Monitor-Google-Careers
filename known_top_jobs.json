@@ -1,37 +1,35 @@
 {
   "google_data": [
-    "Skills & qualifications",
-    "Organizations",
+    "Facilities Manager, Data Center Operations",
+    "Software Engineer III, Full stack, Google Chrome",
     "Software Engineer, Security, Fuchsia OS",
     "Software Engineer III, Infrastructure, Payments",
     "Technical Program Manager III, NPI Ordering Configuration, Cloud Infrastructure"
   ],
   "google_data_engineer": [
-    "Skills & qualifications",
-    "Organizations",
     "Data Engineer III, Geo Data Operations",
     "Data Engineer, Google Customer Solutions",
     "Technical Program Manager, Data Center Infrastructure Data and Analytics"
   ],
   "google_analyst": [
-    "Skills & qualifications",
-    "Organizations",
     "Technical Program Manager III, NPI Ordering Configuration, Cloud Infrastructure",
     "Coherent Memory System Architect, Silicon",
-    "Technical Program Manager III, Manufacturing Test Development, Google Cloud"
+    "Technical Program Manager III, Manufacturing Test Development, Google Cloud",
+    "Program Manager II, Spares Strategy and Analytics",
+    "Android Finance Analyst"
   ],
   "google_early_analyst": [
-    "Skills & qualifications",
-    "Organizations",
     "Analyst, Platform Journey Analytics and Measurement for Support",
     "Fixed Income Portfolio Analyst, Treasury",
-    "Technical Program Manager I, Infrastructure Engineering, Core"
+    "Technical Program Manager I, Infrastructure Engineering, Core",
+    "Strategic Financial Analyst, GCS Finance, Product Strategy",
+    "Program Manager, Environmental, Health and Safety"
   ],
   "google_software_engineer": [
-    "Skills & qualifications",
-    "Organizations",
+    "Software Engineer III, Full stack, Google Chrome",
     "Software Engineer, Security, Fuchsia OS",
     "Software Engineer III, Infrastructure, Payments",
-    "Software Engineer, Data Migration and Integration"
+    "Software Engineer, Data Migration and Integration",
+    "Senior Software Engineer, Full Stack, Google Cloud AI"
   ]
 }
