@@ -44,7 +44,7 @@ SMTP_SERVER = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
 SMTP_PORT = int(os.getenv('SMTP_PORT', '587'))
 SENDER_EMAIL = os.getenv('SENDER_EMAIL', '')
 SENDER_PASSWORD = os.getenv('SENDER_PASSWORD', '')
-RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL', '')
+RECIPIENT_EMAILS = os.getenv('RECIPIENT_EMAILS', '')  # Comma-separated list of emails
 
 def extract_job_count(page, selector):
     """Extract the total job count from the career page"""
@@ -99,8 +99,14 @@ def save_job_counts(counts):
 
 def send_email_alert(changes):
     """Send personalized email alert when job counts change"""
-    if not all([SENDER_EMAIL, SENDER_PASSWORD, RECIPIENT_EMAIL]):
+    if not all([SENDER_EMAIL, SENDER_PASSWORD, RECIPIENT_EMAILS]):
         print("Email configuration incomplete. Skipping email alert.")
+        return False
+    
+    # Parse recipient emails (comma-separated)
+    recipient_list = [email.strip() for email in RECIPIENT_EMAILS.split(',') if email.strip()]
+    if not recipient_list:
+        print("No valid recipient emails found. Skipping email alert.")
         return False
     
     try:
@@ -116,7 +122,7 @@ def send_email_alert(changes):
         # Create message
         msg = MIMEMultipart()
         msg['From'] = SENDER_EMAIL
-        msg['To'] = RECIPIENT_EMAIL
+        msg['To'] = ', '.join(recipient_list)  # Show all recipients in To field
         msg['Subject'] = subject
         
         # Build personalized email body
@@ -152,15 +158,15 @@ def send_email_alert(changes):
         
         msg.attach(MIMEText(body, 'plain'))
         
-        # Send email
+        # Send email to all recipients
         server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
         server.starttls()
         server.login(SENDER_EMAIL, SENDER_PASSWORD)
         text = msg.as_string()
-        server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, text)
+        server.sendmail(SENDER_EMAIL, recipient_list, text)
         server.quit()
         
-        print(f"📧 Personalized email alert sent! {len(changes)} source(s) changed.")
+        print(f"📧 Personalized email alert sent to {len(recipient_list)} recipient(s)! {len(changes)} source(s) changed.")
         return True
         
     except Exception as e:
