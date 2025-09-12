@@ -28,6 +28,11 @@ TARGET_URLS = {
         "url": "https://www.google.com/about/careers/applications/jobs/results?location=United%20States&target_level=MID&target_level=EARLY&employment_type=FULL_TIME&degree=ASSOCIATE&degree=BACHELORS&degree=MASTERS&q=%22Analyst%22&sort_by=date",
         "name": "Google Analyst Jobs",
         "selector": "span.SWhIm"
+    },
+    "google_early_analyst": {
+        "url": "https://www.google.com/about/careers/applications/jobs/results?q=%22early%20career%20analyst%22&sort_by=date&target_level=EARLY&location=United%20States&employment_type=FULL_TIME",
+        "name": "Google Early Career Analyst Jobs",
+        "selector": "span.SWhIm"
     }
 }
 
