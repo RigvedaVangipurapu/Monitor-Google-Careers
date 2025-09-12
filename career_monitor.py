@@ -191,6 +191,7 @@ def main():
             known_counts = load_known_job_counts()
             current_counts = {}
             changes = {}
+            increases = {}  # Track only increases for email alerts
             
             # Monitor each URL
             for source_key, config in TARGET_URLS.items():
@@ -232,6 +233,10 @@ def main():
                                 'previous': previous_count,
                                 'current': current_count
                             }
+                            
+                            # Track increases separately for email alerts
+                            if current_count > previous_count:
+                                increases[source_key] = changes[source_key]
                         else:
                             print("No changes detected.")
                 
@@ -242,13 +247,15 @@ def main():
             # Close browser
             browser.close()
             
-            # Send email if there were changes
-            if changes:
-                print(f"\n📧 Sending email alert for {len(changes)} changed source(s)...")
-                if send_email_alert(changes):
+            # Send email ONLY if there were increases
+            if increases:
+                print(f"\n📧 Sending email alert for {len(increases)} increased source(s)...")
+                if send_email_alert(increases):
                     print("Email alert sent successfully!")
                 else:
                     print("Failed to send email alert.")
+            elif changes:
+                print(f"\n📊 {len(changes)} source(s) changed but no increases detected. No email sent.")
             else:
                 print("\n✅ No changes detected across all sources.")
             
