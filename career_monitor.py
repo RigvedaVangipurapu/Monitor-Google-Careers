@@ -30,7 +30,7 @@ TARGET_URLS = {
         "selector": "span.SWhIm"
     },
     "google_early_analyst": {
-        "url": "https://www.google.com/about/careers/applications/jobs/results?q=%22early%20career%20analyst%22&sort_by=date&target_level=EARLY&location=United%20States&employment_type=FULL_TIME",
+        "url": "https://www.google.com/about/careers/applications/jobs/results?q=%22analyst%22&sort_by=date&target_level=EARLY&location=United%20States&employment_type=FULL_TIME",
         "name": "Google Early Career Analyst Jobs",
         "selector": "span.SWhIm"
     }
