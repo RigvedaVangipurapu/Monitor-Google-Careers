@@ -33,6 +33,11 @@ TARGET_URLS = {
         "url": "https://www.google.com/about/careers/applications/jobs/results?q=%22analyst%22&sort_by=date&target_level=EARLY&location=United%20States&employment_type=FULL_TIME",
         "name": "Google Early Career Analyst Jobs",
         "selector": "span.SWhIm"
+    },
+    "google_software_engineer": {
+        "url": "https://www.google.com/about/careers/applications/jobs/results?q=%22Software%20Engineer%22&location=United%20States&target_level=MID&target_level=EARLY&sort_by=date",
+        "name": "Google Software Engineer Jobs",
+        "selector": "span.SWhIm"
     }
 }
 
