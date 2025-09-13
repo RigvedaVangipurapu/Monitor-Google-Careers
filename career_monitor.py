@@ -191,7 +191,7 @@ def compare_top_jobs(current_jobs, previous_jobs, source_name):
     
     return changes
 
-def send_email_alert(changes, job_changes=None):
+def send_email_alert(changes, job_changes=None, current_top_jobs=None):
     """Send personalized email alert when job counts change or top jobs change"""
     if not all([SENDER_EMAIL, SENDER_PASSWORD, RECIPIENT_EMAILS]):
         print("Email configuration incomplete. Skipping email alert.")
@@ -204,14 +204,21 @@ def send_email_alert(changes, job_changes=None):
         return False
     
     try:
+        # Filter to only show categories with new jobs (increases)
+        categories_with_new_jobs = {k: v for k, v in changes.items() if v['current'] > v['previous']}
+        
+        if not categories_with_new_jobs:
+            print("No categories with new jobs found. Skipping email alert.")
+            return False
+        
         # Create personalized subject based on what changed
-        if len(changes) == 1:
-            source_name = list(changes.values())[0]['name']
-            change = list(changes.values())[0]['current'] - list(changes.values())[0]['previous']
-            change_text = f"+{change}" if change > 0 else str(change)
-            subject = f"🚨 {source_name} Alert: {change_text} jobs"
+        if len(categories_with_new_jobs) == 1:
+            source_name = list(categories_with_new_jobs.values())[0]['name']
+            change = list(categories_with_new_jobs.values())[0]['current'] - list(categories_with_new_jobs.values())[0]['previous']
+            subject = f"🚨 {source_name}: {change} new jobs posted!"
         else:
-            subject = f"🚨 Multiple Job Alerts: {len(changes)} categories changed"
+            total_new_jobs = sum(data['current'] - data['previous'] for data in categories_with_new_jobs.values())
+            subject = f"🚨 {len(categories_with_new_jobs)} categories: {total_new_jobs} new jobs posted!"
         
         # Create message
         msg = MIMEMultipart()
@@ -224,44 +231,25 @@ def send_email_alert(changes, job_changes=None):
         body += "=" * 50 + "\n\n"
         body += f"⏰ Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
         
-        # Add personalized message based on changes
-        total_new_jobs = sum(data['current'] - data['previous'] for data in changes.values() if data['current'] > data['previous'])
-        total_removed_jobs = sum(data['previous'] - data['current'] for data in changes.values() if data['current'] < data['previous'])
+        # Add total new jobs count
+        total_new_jobs = sum(data['current'] - data['previous'] for data in categories_with_new_jobs.values())
+        body += f"🎉 {total_new_jobs} new job(s) posted across {len(categories_with_new_jobs)} categories!\n\n"
         
-        if total_new_jobs > 0:
-            body += f"🎉 Great news! {total_new_jobs} new job(s) posted!\n\n"
-        if total_removed_jobs > 0:
-            body += f"📉 {total_removed_jobs} job(s) were removed.\n\n"
-        
-        # Add job changes if any
-        if job_changes:
-            body += "🆕 NEW JOB POSTINGS:\n"
-            body += "-" * 30 + "\n\n"
-            for source, changes_list in job_changes.items():
-                if changes_list:
-                    body += f"📋 {source}:\n"
-                    for change in changes_list:
-                        if change['action'] == 'new':
-                            body += f"   • #{change['position']}: {change['job_title']}\n"
-                        elif change['action'] == 'removed':
-                            body += f"   • ❌ Removed: {change['job_title']}\n"
-                        elif change['action'] == 'moved':
-                            body += f"   • 🔄 Moved: {change['job_title']} (#{change['old_position']} → #{change['new_position']})\n"
-                    body += "\n"
-        
-        body += "📊 DETAILED BREAKDOWN:\n"
-        body += "-" * 30 + "\n\n"
-        
-        for source, data in changes.items():
+        # Show only categories with new jobs and their top 5 roles
+        for source_key, data in categories_with_new_jobs.items():
             change = data['current'] - data['previous']
-            change_text = f"+{change}" if change > 0 else str(change)
-            emoji = "📈" if change > 0 else "📉" if change < 0 else "➡️"
+            body += f"📋 {data['name']} (+{change} jobs)\n"
+            body += "-" * 40 + "\n"
             
-            body += f"{emoji} {data['name']}:\n"
-            body += f"   • Previous: {data['previous']} jobs\n"
-            body += f"   • Current: {data['current']} jobs\n"
-            body += f"   • Change: {change_text} jobs\n"
-            body += f"   • 🔗 View Jobs: {data['url']}\n\n"
+            # Get the current top 5 jobs for this category
+            if current_top_jobs and source_key in current_top_jobs:
+                top_jobs = current_top_jobs[source_key]
+                for i, job_title in enumerate(top_jobs, 1):
+                    body += f"   {i}. {job_title}\n"
+            else:
+                body += "   (Top jobs not available)\n"
+            
+            body += f"\n   🔗 View all jobs: {data['url']}\n\n"
         
         body += "🤖 This is an automated alert from your career monitoring system.\n"
         body += "💡 Set up job alerts on Google Careers for instant notifications!"
@@ -276,7 +264,7 @@ def send_email_alert(changes, job_changes=None):
         server.sendmail(SENDER_EMAIL, recipient_list, text)
         server.quit()
         
-        print(f"📧 Personalized email alert sent to {len(recipient_list)} recipient(s)! {len(changes)} source(s) changed.")
+        print(f"📧 Personalized email alert sent to {len(recipient_list)} recipient(s)! {len(categories_with_new_jobs)} category(ies) with new jobs.")
         return True
         
     except Exception as e:
@@ -382,20 +370,17 @@ def main():
             # Close browser
             browser.close()
             
-            # Send email if there were increases OR job changes
-            if increases or job_changes:
+            # Send email if there were increases
+            if increases:
                 print(f"\n📧 Sending email alert...")
-                if increases:
-                    print(f"  • {len(increases)} source(s) with increased job counts")
-                if job_changes:
-                    print(f"  • {len(job_changes)} source(s) with job changes")
+                print(f"  • {len(increases)} source(s) with increased job counts")
                 
-                if send_email_alert(increases, job_changes):
+                if send_email_alert(increases, job_changes, current_top_jobs):
                     print("Email alert sent successfully!")
                 else:
                     print("Failed to send email alert.")
             elif changes:
-                print(f"\n📊 {len(changes)} source(s) changed but no increases or job changes detected. No email sent.")
+                print(f"\n📊 {len(changes)} source(s) changed but no increases detected. No email sent.")
             else:
                 print("\n✅ No changes detected across all sources.")
             
