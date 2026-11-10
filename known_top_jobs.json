@@ -1,35 +1,33 @@
 {
   "google_data": [
-    "Facilities Manager, Data Center Operations",
-    "Software Engineer III, Full stack, Google Chrome",
-    "Software Engineer, Security, Fuchsia OS",
-    "Software Engineer III, Infrastructure, Payments",
-    "Technical Program Manager III, NPI Ordering Configuration, Cloud Infrastructure"
+    "Software Engineer III, Infrastructure, Google Workspace",
+    "Technical Program Manager III, Change Governance, Google Data Centers",
+    "Senior Software Engineer, AI/ML Infrastructure, Ads Safety",
+    "Fabrication Wet Etch Engineer, Quantum AI",
+    "Data Center Operations Manager, CSCS Deployments"
   ],
   "google_data_engineer": [
-    "Data Engineer III, Geo Data Operations",
-    "Data Engineer, Google Customer Solutions",
-    "Technical Program Manager, Data Center Infrastructure Data and Analytics"
+    "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
-    "Technical Program Manager III, NPI Ordering Configuration, Cloud Infrastructure",
-    "Coherent Memory System Architect, Silicon",
-    "Technical Program Manager III, Manufacturing Test Development, Google Cloud",
-    "Program Manager II, Spares Strategy and Analytics",
-    "Android Finance Analyst"
+    "Technical Program Manager III, Change Governance, Google Data Centers",
+    "Technical Program Manager III, Tooling Automation and Analytics, Google Cloud",
+    "Principal Analyst, Trust and Safety",
+    "Technical Program Manager III, Software Tools",
+    "Program Manager III, NPI Operations, Machine Learning"
   ],
   "google_early_analyst": [
-    "Analyst, Platform Journey Analytics and Measurement for Support",
-    "Fixed Income Portfolio Analyst, Treasury",
-    "Technical Program Manager I, Infrastructure Engineering, Core",
-    "Strategic Financial Analyst, GCS Finance, Product Strategy",
-    "Program Manager, Environmental, Health and Safety"
+    "Finance Analyst, Ads and Commerce Finance",
+    "Analytical Lead, Government and Advocacy, Large Customer Sales",
+    "Strategic Financial Analyst, Pixel Product Finance",
+    "Compliance Operations Analyst, Verification Operations",
+    "Associate Finance Analyst, University Graduate"
   ],
   "google_software_engineer": [
-    "Software Engineer III, Full stack, Google Chrome",
-    "Software Engineer, Security, Fuchsia OS",
-    "Software Engineer III, Infrastructure, Payments",
-    "Software Engineer, Data Migration and Integration",
-    "Senior Software Engineer, Full Stack, Google Cloud AI"
+    "Software Engineer III, Infrastructure, Google Workspace",
+    "Senior Software Engineer, AI/ML Infrastructure, Ads Safety",
+    "Software Engineer III, AI/ML, Google Ads",
+    "Software Engineer III, Infrastructure, Google Ads",
+    "Senior Software Engineer, AI/ML NLP, Deep Learning, Search Infrastructure"
   ]
 }
