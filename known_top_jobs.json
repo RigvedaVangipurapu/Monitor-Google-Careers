@@ -1,33 +1,33 @@
 {
   "google_data": [
-    "Software Engineer III, Infrastructure, Google Workspace",
-    "Technical Program Manager III, Change Governance, Google Data Centers",
-    "Senior Software Engineer, AI/ML Infrastructure, Ads Safety",
-    "Fabrication Wet Etch Engineer, Quantum AI",
-    "Data Center Operations Manager, CSCS Deployments"
+    "Optical Transport Network Implementation Engineer",
+    "Program Manager III, Operational Technology Security, Data Centers",
+    "Trust and Safety Intel Analyst, Model Behavior and Alignment",
+    "Security Engineer, Infrastructure Detection",
+    "Data Center Flex Area Security Manager, Compliance, Strategy, and Risk Management (2nd Shift)"
   ],
   "google_data_engineer": [
     "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
-    "Technical Program Manager III, Change Governance, Google Data Centers",
-    "Technical Program Manager III, Tooling Automation and Analytics, Google Cloud",
-    "Principal Analyst, Trust and Safety",
-    "Technical Program Manager III, Software Tools",
-    "Program Manager III, NPI Operations, Machine Learning"
+    "Senior Developer Relations Engineer, AI Compute Enablement",
+    "Program Manager III, Operational Technology Security, Data Centers",
+    "Trust and Safety Intel Analyst, Model Behavior and Alignment",
+    "Security Engineer, Infrastructure Detection",
+    "Financial Analyst II, Cloud Financial Planning and Analysis, Compute Business"
   ],
   "google_early_analyst": [
-    "Finance Analyst, Ads and Commerce Finance",
     "Analytical Lead, Government and Advocacy, Large Customer Sales",
     "Strategic Financial Analyst, Pixel Product Finance",
     "Compliance Operations Analyst, Verification Operations",
-    "Associate Finance Analyst, University Graduate"
+    "Treasury Analyst I",
+    "Program Manager I, Data Center Maintenance Planner, Google Cloud"
   ],
   "google_software_engineer": [
+    "Senior Software Engineer, Infrastructure, Google Cloud Storage",
+    "Software Engineer, Processor Design Infrastructure, Quantum AI",
+    "Software Engineer III, AI/ML, AI and Infrastructure",
     "Software Engineer III, Infrastructure, Google Workspace",
-    "Senior Software Engineer, AI/ML Infrastructure, Ads Safety",
-    "Software Engineer III, AI/ML, Google Ads",
-    "Software Engineer III, Infrastructure, Google Ads",
-    "Senior Software Engineer, AI/ML NLP, Deep Learning, Search Infrastructure"
+    "Senior Software Engineer, AI/ML Infrastructure, Ads Safety"
   ]
 }
