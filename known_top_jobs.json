@@ -1,13 +1,20 @@
 {
+  "google_data": [
+    "Associate, Brand Deals Growth Strategy (3P Enablement), YouTube",
+    "Measurement Lead, Consumer Goods, Government and Entertainment",
+    "AI Threat Defense Engineer, Professional Services Organization",
+    "Financial Analyst II, Laptop, Tablets and Enterprise",
+    "Customer and Product Solutions Engineer, GenAI"
+  ],
   "google_data_engineer": [
     "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
+    "Financial Analyst II, Laptop, Tablets and Enterprise",
+    "Senior Financial Analyst, Cloud Finance Emerging Business Manager",
     "Equity Accounting Analyst",
     "Data Center Site Program Manager II",
-    "Data Center Site Program Manager III",
-    "Senior Developer Relations Engineer, AI Compute Enablement",
-    "Program Manager III, Operational Technology Security, Data Centers"
+    "Data Center Site Program Manager III"
   ],
   "google_early_analyst": [
     "Analytical Lead, Government and Advocacy, Large Customer Sales",
