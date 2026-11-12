@@ -1,20 +1,14 @@
 {
-  "google_data": [
-    "Senior Software Engineer, AI Storage Infrastructure",
-    "Content Specialist, Brands as Creators, YouTube",
-    "Data Center Technician III",
-    "Software Engineer, Knowledge Catalog For AI",
-    "Senior Power Management Engineer, Platforms Engineering"
-  ],
   "google_data_engineer": [
+    "Data Engineer, gUP Engineering",
     "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
+    "Technical Program Manager, Data Center Security Systems",
     "Financial Analyst II",
     "Analytical Lead, YouTube Brand Deals and Shopping",
     "Senior Financial Analyst I",
-    "Senior Cyber Defense Analyst, Mandiant, Google Cloud",
-    "Technical Program Manager III, Mission Critical Facilities Construction, Cloud Networking"
+    "Senior Cyber Defense Analyst, Mandiant, Google Cloud"
   ],
   "google_early_analyst": [
     "Analytical Lead, Government and Advocacy, Large Customer Sales",
@@ -24,10 +18,10 @@
     "Program Manager I, Data Center Maintenance Planner, Google Cloud"
   ],
   "google_software_engineer": [
+    "Software Engineer III, Infrastructure, Google Cloud Storage",
+    "Software Engineer III, Infrastructure, Google Cloud Platforms",
+    "Senior Product Technology Manager, Cloud Support on Gemini",
     "Senior Software Engineer, AI Storage Infrastructure",
-    "Software Engineer, Knowledge Catalog For AI",
-    "Senior Software Engineer, Infrastructure, Core",
-    "Senior Software Engineer, Full Stack and Advanced Algorithms",
-    "Software Engineer III, Infrastructure, Google Ads"
+    "Software Engineer, Knowledge Catalog For AI"
   ]
 }
