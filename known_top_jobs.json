@@ -1,20 +1,20 @@
 {
   "google_data": [
-    "ASIC Formal Verification Engineer, Google Cloud",
-    "Product Solutions Engineer, Health and Home",
-    "Software Engineer III, Security/Privacy, Google Cloud Security and Privacy",
-    "Software Engineer III, Infrastructure, Google Cloud Networking",
-    "Senior Software Engineer, Infrastructure, Google Cloud Compute Infrastructure"
+    "Senior Software Engineer, AI Storage Infrastructure",
+    "Content Specialist, Brands as Creators, YouTube",
+    "Data Center Technician III",
+    "Software Engineer, Knowledge Catalog For AI",
+    "Senior Power Management Engineer, Platforms Engineering"
   ],
   "google_data_engineer": [
     "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
-    "Technical Program Manager III, Hardware NPI, Platforms Infrastructure",
-    "Technical Program Manager III, Network Deployment Optimization, Cloud Networking",
-    "Technical Program Manager III, Operational Technology Security",
-    "Program Manager II, Demand Planning, Google Data Center",
-    "Financial Analyst II"
+    "Financial Analyst II",
+    "Analytical Lead, YouTube Brand Deals and Shopping",
+    "Senior Financial Analyst I",
+    "Senior Cyber Defense Analyst, Mandiant, Google Cloud",
+    "Technical Program Manager III, Mission Critical Facilities Construction, Cloud Networking"
   ],
   "google_early_analyst": [
     "Analytical Lead, Government and Advocacy, Large Customer Sales",
@@ -24,10 +24,10 @@
     "Program Manager I, Data Center Maintenance Planner, Google Cloud"
   ],
   "google_software_engineer": [
-    "Software Engineer III, Security/Privacy, Google Cloud Security and Privacy",
-    "Software Engineer III, Infrastructure, Google Cloud Networking",
-    "Senior Software Engineer, Infrastructure, Google Cloud Compute Infrastructure",
-    "Software Engineer III, Infrastructure, AI and Infrastructure",
-    "Software Engineer III, Infrastructure, Google Cloud NetInfra"
+    "Senior Software Engineer, AI Storage Infrastructure",
+    "Software Engineer, Knowledge Catalog For AI",
+    "Senior Software Engineer, Infrastructure, Core",
+    "Senior Software Engineer, Full Stack and Advanced Algorithms",
+    "Software Engineer III, Infrastructure, Google Ads"
   ]
 }
