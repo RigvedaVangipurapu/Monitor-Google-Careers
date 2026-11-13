@@ -1,21 +1,21 @@
 {
   "google_data": [
-    "Senior Scaled Abuse Analyst, YouTube Trust and Safety",
-    "Strategy and Operations Lead",
-    "AI Software Engineer, Multimodal Agentic AI for Glasses",
-    "Senior Software Engineer, AI/ML, YouTube",
-    "Electrical Manufacturing Engineer, Platforms Infrastructure Engineering"
+    "Software Engineer III, Infrastructure, YouTube",
+    "Senior Software Engineer, Infrastructure, AlloyDB",
+    "Software Engineer, Infrastructure, Search Intelligence",
+    "Partner Lead, Influencer Marketing Agencies",
+    "Senior Infrastructure Software Engineer (SRE/Platform)"
   ],
   "google_data_engineer": [
     "Data Engineer, gUP Engineering",
     "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
+    "Technical Program Manager III, Search and Shared Features, Consumer Shopping",
+    "Technical Program Manager II, Spares Readiness, Data Center Operations",
     "Senior Scaled Abuse Analyst, YouTube Trust and Safety",
     "People Consultant, Onsite Data Center",
-    "Enforcement Detection Analyst",
-    "Senior Scaled Abuse Analyst, YouTube Traffic Abuse",
-    "Data Center Site Program Manager II"
+    "Enforcement Detection Analyst"
   ],
   "google_early_analyst": [
     "Analytical Lead, Government and Advocacy, Large Customer Sales",
@@ -25,10 +25,10 @@
     "Program Manager I, Data Center Maintenance Planner, Google Cloud"
   ],
   "google_software_engineer": [
-    "AI Software Engineer, Multimodal Agentic AI for Glasses",
-    "Senior Software Engineer, AI/ML, YouTube",
-    "Software Engineer III, AI/ML, Core",
-    "Senior Software Engineer, GenAI, Search",
-    "Senior Software Engineer, Engineering Productivity"
+    "Software Engineer III, Infrastructure, YouTube",
+    "Senior Software Engineer, Infrastructure, AlloyDB",
+    "Software Engineer, Infrastructure, Search Intelligence",
+    "Senior Infrastructure Software Engineer (SRE/Platform)",
+    "Software Engineer, Geo, Computer Vision"
   ]
 }
