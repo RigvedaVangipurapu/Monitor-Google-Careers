@@ -1,34 +1,34 @@
 {
   "google_data": [
-    "Software Engineer III, Infrastructure, YouTube",
-    "Senior Software Engineer, Infrastructure, AlloyDB",
-    "Software Engineer, Infrastructure, Search Intelligence",
-    "Partner Lead, Influencer Marketing Agencies",
-    "Senior Infrastructure Software Engineer (SRE/Platform)"
+    "Technical Program Manager II, Data and Analytics, Cloud Network",
+    "Associate Principal Launch Governance Analyst, Frontier Safety",
+    "Content Strategist, gTech Users and Products",
+    "Program Manager II, Operations, Cloud Supply Chain",
+    "Technical Program Manager I, Data Center Networking, Cloud Network"
   ],
   "google_data_engineer": [
     "Data Engineer, gUP Engineering",
     "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
-    "Technical Program Manager III, Search and Shared Features, Consumer Shopping",
-    "Technical Program Manager II, Spares Readiness, Data Center Operations",
-    "Senior Scaled Abuse Analyst, YouTube Trust and Safety",
-    "People Consultant, Onsite Data Center",
-    "Enforcement Detection Analyst"
+    "Technical Program Manager II, Data and Analytics, Cloud Network",
+    "Associate Principal Launch Governance Analyst, Frontier Safety",
+    "Program Manager II, Operations, Cloud Supply Chain",
+    "Technical Program Manager I, Data Center Networking, Cloud Network",
+    "Program Manager II, New Product Introduction Planning, Cloud Supply Chain"
   ],
   "google_early_analyst": [
+    "Technical Program Manager I, Data Center Networking, Cloud Network",
     "Analytical Lead, Government and Advocacy, Large Customer Sales",
     "Strategic Financial Analyst, Pixel Product Finance",
     "Compliance Operations Analyst, Verification Operations",
-    "Treasury Analyst I",
-    "Program Manager I, Data Center Maintenance Planner, Google Cloud"
+    "Treasury Analyst I"
   ],
   "google_software_engineer": [
+    "Senior Software Engineer, Release Channel",
+    "Senior Software Engineer, AI/ML, Platforms and Devices",
     "Software Engineer III, Infrastructure, YouTube",
     "Senior Software Engineer, Infrastructure, AlloyDB",
-    "Software Engineer, Infrastructure, Search Intelligence",
-    "Senior Infrastructure Software Engineer (SRE/Platform)",
-    "Software Engineer, Geo, Computer Vision"
+    "Software Engineer, Infrastructure, Search Intelligence"
   ]
 }
