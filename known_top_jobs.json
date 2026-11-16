@@ -1,21 +1,21 @@
 {
   "google_data": [
-    "Technical Program Manager II, Data and Analytics, Cloud Network",
-    "Associate Principal Launch Governance Analyst, Frontier Safety",
-    "Content Strategist, gTech Users and Products",
-    "Program Manager II, Operations, Cloud Supply Chain",
-    "Technical Program Manager I, Data Center Networking, Cloud Network"
+    "Program Manager III, Supply Chain Resiliency, Cloud Supply Chain",
+    "Senior ASIC Physical Design Engineer",
+    "Senior Software Engineer, Infrastructure, Google Cloud Platforms",
+    "Product Deployment Engineer, gTech Ads, Search",
+    "Brand Deals Market Activation Lead, Americas"
   ],
   "google_data_engineer": [
     "Data Engineer, gUP Engineering",
     "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
-    "Technical Program Manager II, Data and Analytics, Cloud Network",
-    "Associate Principal Launch Governance Analyst, Frontier Safety",
-    "Program Manager II, Operations, Cloud Supply Chain",
-    "Technical Program Manager I, Data Center Networking, Cloud Network",
-    "Program Manager II, New Product Introduction Planning, Cloud Supply Chain"
+    "Program Manager III, Supply Chain Resiliency, Cloud Supply Chain",
+    "Security Analyst, Identity and Access Management, gTech Risk Solutions",
+    "Financial Analyst, Identity and Personalized AI, Core Tech Finance",
+    "Technical Program Manager, Data Center Infrastructure Delivery",
+    "Financial Analyst, Supply Chain Finance"
   ],
   "google_early_analyst": [
     "Technical Program Manager I, Data Center Networking, Cloud Network",
@@ -25,10 +25,10 @@
     "Treasury Analyst I"
   ],
   "google_software_engineer": [
-    "Senior Software Engineer, Release Channel",
-    "Senior Software Engineer, AI/ML, Platforms and Devices",
-    "Software Engineer III, Infrastructure, YouTube",
-    "Senior Software Engineer, Infrastructure, AlloyDB",
-    "Software Engineer, Infrastructure, Search Intelligence"
+    "Senior Software Engineer, Infrastructure, Google Cloud Platforms",
+    "Software Engineer, Home and Health Infrastructure, Special Projects",
+    "Senior Software Engineer, AI/ML GenAI, Google Cloud AI",
+    "Senior Software Engineer, Infrastructure, Google Cloud Security and Privacy",
+    "Senior Software Engineer, AI/ML Recommendations Systems, Google Play"
   ]
 }
