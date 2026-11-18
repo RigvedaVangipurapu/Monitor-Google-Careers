@@ -1,21 +1,22 @@
 {
   "google_data": [
-    "Strategic Negotiator",
-    "Technical Program Manager II, Data and Technology, Global Sustainability",
-    "Senior Software Engineer, Security/Privacy, Google Cloud Security and Privacy",
-    "Business Data Scientist, gUP Analytics",
-    "Senior Software Engineer, Embedded Systems/Firmware, Google Cloud Platforms"
+    "Data Center Technician III",
+    "Data Center Technician III",
+    "Data Center Operations Manager, Third Party Data Centers",
+    "Logistics Operations Manager",
+    "Senior Design Verification Engineer, Google TPU Compute"
   ],
   "google_data_engineer": [
+    "Data Engineer, YouTube",
     "Data Engineer, gUP Engineering",
     "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
-    "Technical Program Manager II, Data and Technology, Global Sustainability",
-    "Program Manager I, Data Center Software Integration, Cloud Networking",
-    "Program Manager II, Supply Chain, Cloud Networking",
-    "Senior Financial Analyst, Payments",
-    "Marketing Data Analyst, Global Partnerships"
+    "Technical Program Manager II, Compute Resource Planning, Google Research",
+    "Technical Program Manager II, Reliability, Machine Learning/AI",
+    "Technical Program Manager III, Fiber Delivery, Cloud Networking",
+    "Program Manager, Data Center Construction",
+    "Technical Program Manager III, AI Security, Cloud AI"
   ],
   "google_early_analyst": [
     "Program Manager I, Data Center Software Integration, Cloud Networking",
@@ -25,10 +26,10 @@
     "Strategic Financial Analyst, Pixel Product Finance"
   ],
   "google_software_engineer": [
-    "Senior Software Engineer, Security/Privacy, Google Cloud Security and Privacy",
-    "Senior Software Engineer, Embedded Systems/Firmware, Google Cloud Platforms",
-    "Software Engineer III, AI/ML GenAI, Google Workspace",
-    "Senior Software Engineer, BigQuery Data Protection",
-    "Software Engineer III, AI Agent Architecture"
+    "Senior Software Engineer, Trust and Safety, Responsible AI",
+    "Senior Software Engineer, AI/ML, Google Cloud Platforms",
+    "Software Engineer III, AI/ML GenAI, Workspace Drive",
+    "Software Engineer III, Infrastructure, Google Cloud Platforms",
+    "Technical Program Manager II, Compute Resource Planning, Google Research"
   ]
 }
