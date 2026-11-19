@@ -1,35 +1,37 @@
 {
   "google_data": [
-    "Senior Software Engineer, AI/ML GenAI, Google Workspace",
-    "Software Engineer III, Infrastructure, Geo",
-    "Software Engineer III, AI/ML, Google Cloud Compute Infrastructure",
-    "Partner Solutions Engineer, Open Source and Developer Experience, Universal Commerce Protocol",
-    "Senior Software Engineer, Embedded Systems/Firmware, Platforms and Devices"
+    "Machine Leaning Engineer, Google Image Search Modeling",
+    "Software Engineer, Engineering Productivity",
+    "Global Product Lead, Ads MarTech",
+    "Software Engineer III, Embedded Systems/Firmware, Platforms Infrastructure Engineering",
+    "Program Manager, AI/ML"
   ],
   "google_data_engineer": [
+    "Senior Data Engineer, RT&amp;S Data Engineering, Tech and Data Enablement (English)",
+    "Senior Data Engineer, Taxonomy, AI Data Modeling, MLOps, YouTube Business",
     "Data Engineer, YouTube",
     "Data Engineer, gUP Engineering",
     "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
-    "Financial Analyst, Pixel Ecosystem Product Finance",
-    "Technical Program Manager I, Colocation Infrastructure, Cloud Networking",
-    "Technical Program Manager II, Compute Resource Planning, Google Research",
-    "Technical Program Manager II, Reliability, Machine Learning/AI",
-    "Technical Program Manager III, Fiber Delivery, Cloud Networking"
+    "Program Manager, AI/ML",
+    "Engineering Analyst, Trust and Safety, Payments",
+    "Engineering Analyst, Enterprise Payments",
+    "Technical Program Manager II, Global Infrastructure, Google Cloud",
+    "Financial Analyst, Pixel Ecosystem Product Finance"
   ],
   "google_early_analyst": [
+    "Engineering Analyst, Trust and Safety, Payments",
     "Technical Program Manager I, Colocation Infrastructure, Cloud Networking",
     "Program Manager I, Data Center Software Integration, Cloud Networking",
     "Marketing Data Analyst, Global Partnerships",
-    "Technical Program Manager I, Data Center Networking, Cloud Network",
-    "Analytical Lead, Government and Advocacy, Large Customer Sales"
+    "Technical Program Manager I, Data Center Networking, Cloud Network"
   ],
   "google_software_engineer": [
-    "Senior Software Engineer, AI/ML GenAI, Google Workspace",
-    "Software Engineer III, Infrastructure, Geo",
-    "Software Engineer III, AI/ML, Google Cloud Compute Infrastructure",
-    "Senior Software Engineer, Embedded Systems/Firmware, Platforms and Devices",
-    "Software Engineer III, Embedded Systems/Firmware, Platforms Infrastructure Engineering"
+    "Machine Leaning Engineer, Google Image Search Modeling",
+    "Software Engineer, Engineering Productivity",
+    "Software Engineer III, Embedded Systems/Firmware, Platforms Infrastructure Engineering",
+    "Senior Software Engineer, AI/ML, Workspace Intelligence",
+    "Senior Software Engineer, Full Stack, Gemini Enterprise"
   ]
 }
