@@ -1,10 +1,10 @@
 {
   "google_data": [
-    "Software Engineer III, Infrastructure, Search",
-    "Accountant, Spend Controllership",
-    "Machine Leaning Engineer, Google Image Search Modeling",
-    "Software Engineer, Engineering Productivity",
-    "Global Product Lead, Ads MarTech"
+    "Data Center Server Operations Manager, Global Server Operations",
+    "Logistics Operations Manager",
+    "Strategy and Operations Manager, AI Futures Fund",
+    "Agentic Data Cloud Customer Engineer, Startups, Google Cloud",
+    "Senior Software Engineer, Engineering Productivity, Google Cloud Business Platform"
   ],
   "google_data_engineer": [
     "Senior Data Engineer, RT&amp;S Data Engineering, Tech and Data Enablement (English)",
@@ -14,24 +14,24 @@
     "Data Engineer, Technical Solutions, Geo"
   ],
   "google_analyst": [
-    "Program Manager, AI/ML",
-    "Engineering Analyst, Trust and Safety, Payments",
-    "Engineering Analyst, Enterprise Payments",
-    "Technical Program Manager II, Global Infrastructure, Google Cloud",
-    "Financial Analyst, Pixel Ecosystem Product Finance"
+    "Financial Analyst II",
+    "Data Center Site Program Manager II",
+    "Program Manager, Strategic Category Manager",
+    "Technical Program Manager II, Machine Learning, Google Cloud",
+    "Program Manager, AI/ML"
   ],
   "google_early_analyst": [
     "Engineering Analyst, Trust and Safety, Payments",
-    "Technical Program Manager I, Colocation Infrastructure, Cloud Networking",
     "Program Manager I, Data Center Software Integration, Cloud Networking",
     "Marketing Data Analyst, Global Partnerships",
-    "Technical Program Manager I, Data Center Networking, Cloud Network"
+    "Technical Program Manager I, Data Center Networking, Cloud Network",
+    "Analytical Lead, Government and Advocacy, Large Customer Sales"
   ],
   "google_software_engineer": [
+    "Senior Software Engineer, Engineering Productivity, Google Cloud Business Platform",
     "Software Engineer III, Infrastructure, Search",
     "Machine Leaning Engineer, Google Image Search Modeling",
     "Software Engineer, Engineering Productivity",
-    "Software Engineer III, Embedded Systems/Firmware, Platforms Infrastructure Engineering",
-    "Senior Software Engineer, AI/ML, Workspace Intelligence"
+    "Software Engineer III, Embedded Systems/Firmware, Platforms Infrastructure Engineering"
   ]
 }
