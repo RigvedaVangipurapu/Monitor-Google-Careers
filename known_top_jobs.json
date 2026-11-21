@@ -1,17 +1,16 @@
 {
   "google_data": [
+    "Senior Software Engineer, Embedded Systems/Firmware, Platforms Infrastructure Engineering",
+    "Software Engineer III, Infrastructure, Platforms Infrastructure Engineering",
     "Product Specialist, gTech Ads Customer Experience (English)",
     "Data Center Facilities Technician II, Mechanical",
-    "Product Manager II, Data Commons Enterprise Platform",
-    "Strategy and Operations Lead, Payments Partnerships, K&amp;I",
-    "Technical Program Manager, Logistics Solutions"
+    "Product Manager II, Data Commons Enterprise Platform"
   ],
   "google_data_engineer": [
     "Senior Data Engineer, RT&amp;S Data Engineering, Tech and Data Enablement (English)",
     "Senior Data Engineer, Taxonomy, AI Data Modeling, MLOps, YouTube Business",
     "Data Engineer, YouTube",
-    "Data Engineer, gUP Engineering",
-    "Data Engineer, Technical Solutions, Geo"
+    "Data Engineer, gUP Engineering"
   ],
   "google_analyst": [
     "Program Manager III, Logistics Budgeting and Financial Planning, Cloud Customer Logistics",
@@ -28,10 +27,10 @@
     "Analytical Lead, Government and Advocacy, Large Customer Sales"
   ],
   "google_software_engineer": [
+    "Senior Software Engineer, Embedded Systems/Firmware, Platforms Infrastructure Engineering",
+    "Software Engineer III, Infrastructure, Platforms Infrastructure Engineering",
     "Senior Software Engineer, Engineering Productivity, Google Cloud Business Platform",
     "Software Engineer III, Infrastructure, Search",
-    "Machine Leaning Engineer, Google Image Search Modeling",
-    "Software Engineer, Engineering Productivity",
-    "Software Engineer III, Embedded Systems/Firmware, Platforms Infrastructure Engineering"
+    "Machine Leaning Engineer, Google Image Search Modeling"
   ]
 }
