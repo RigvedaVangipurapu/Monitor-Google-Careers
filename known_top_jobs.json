@@ -1,36 +1,35 @@
 {
   "google_data": [
-    "Senior Software Engineer, Embedded Systems/Firmware, Platforms Infrastructure Engineering",
-    "Software Engineer III, Infrastructure, Platforms Infrastructure Engineering",
-    "Product Specialist, gTech Ads Customer Experience (English)",
-    "Data Center Facilities Technician II, Mechanical",
-    "Product Manager II, Data Commons Enterprise Platform"
+    "Senior Software Engineer, Infrastructure, Google Cloud Platforms",
+    "Operations Manager, Readiness",
+    "Technical Program Manager III, TPU Systems Software",
+    "Software Engineer, Health Frontier",
+    "Data Center Technician III, Deployment Support, Cloud Supply Chain Services"
   ],
   "google_data_engineer": [
+    "Data Engineer, Cloud Learning Services",
     "Senior Data Engineer, RT&amp;S Data Engineering, Tech and Data Enablement (English)",
     "Senior Data Engineer, Taxonomy, AI Data Modeling, MLOps, YouTube Business",
-    "Data Engineer, YouTube",
     "Data Engineer, gUP Engineering"
   ],
   "google_analyst": [
-    "Program Manager III, Logistics Budgeting and Financial Planning, Cloud Customer Logistics",
-    "Technical Program Manager, Logistics Solutions",
-    "Technical Program Manager III, Operational Technology Security",
-    "Cloud Services Senior Financial Analyst, Cloud Go-to-Market Finance",
-    "Financial Analyst II"
+    "Technical Program Manager III, TPU Systems Software",
+    "Senior Engineering Analyst, Trust and Safety Ads",
+    "Technical Program Manager II, Data Center Delivery, Cloud Networking",
+    "Analyst, Trust and Safety, Ads Content Safety",
+    "Data Center Site Program Manager III"
   ],
   "google_early_analyst": [
     "Engineering Analyst, Trust and Safety, Payments",
     "Program Manager I, Data Center Software Integration, Cloud Networking",
     "Marketing Data Analyst, Global Partnerships",
-    "Technical Program Manager I, Data Center Networking, Cloud Network",
-    "Analytical Lead, Government and Advocacy, Large Customer Sales"
+    "Technical Program Manager I, Data Center Networking, Cloud Network"
   ],
   "google_software_engineer": [
-    "Senior Software Engineer, Embedded Systems/Firmware, Platforms Infrastructure Engineering",
-    "Software Engineer III, Infrastructure, Platforms Infrastructure Engineering",
-    "Senior Software Engineer, Engineering Productivity, Google Cloud Business Platform",
-    "Software Engineer III, Infrastructure, Search",
-    "Machine Leaning Engineer, Google Image Search Modeling"
+    "Senior Software Engineer, Infrastructure, Google Cloud Platforms",
+    "Software Engineer, Health Frontier",
+    "Senior Software Engineer, BigQuery Agentic AI",
+    "Senior Software Engineer, Infrastructure, Google Cloud Networking",
+    "Senior Software Engineer, Machine Learning, Applied AI"
   ]
 }
