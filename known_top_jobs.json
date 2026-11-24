@@ -1,10 +1,10 @@
 {
   "google_data": [
-    "Analytical Lead, Large Customer Sales",
-    "Tax Analyst II",
-    "Software Engineer III, AI/ML, App Ads Quality",
-    "Business Data Scientist, Legal and Global Affairs",
-    "Data Center Technician III, Deployment Support, Cloud Supply Chain Services"
+    "System Level Test Product Owner, Google Cloud",
+    "Silicon Infrastructure Engineer II",
+    "Program Manager III, Logistics Strategy and Operations, Cloud Customer Logistics",
+    "Marketplace Operations Specialist, Google Cloud Marketplace",
+    "Software Engineer III, Infrastructure, Google Cloud Platforms"
   ],
   "google_data_engineer": [
     "Data Engineer, Cloud Learning Services",
@@ -13,11 +13,11 @@
     "Data Engineer, gUP Engineering"
   ],
   "google_analyst": [
+    "Program Manager III, Logistics Strategy and Operations, Cloud Customer Logistics",
+    "Technical Program Manager III, Supply Chain, Platforms and Devices",
+    "Engineering Analyst, Trust and Safety, Payments",
     "Analytical Lead, Large Customer Sales",
-    "Tax Analyst II",
-    "Senior Engineering Analyst, Trust and Safety Search, Sensitive Search Verticals",
-    "Treasury Full Stack Analyst",
-    "Technical Program Manager II, Charging, Pixel"
+    "Tax Analyst II"
   ],
   "google_early_analyst": [
     "Engineering Analyst, Trust and Safety, Payments",
@@ -26,10 +26,10 @@
     "Technical Program Manager I, Data Center Networking, Cloud Network"
   ],
   "google_software_engineer": [
-    "Software Engineer III, AI/ML, App Ads Quality",
     "Software Engineer III, Infrastructure, Google Cloud Platforms",
-    "Software Engineer III, Infrastructure, Google Cloud Platforms",
-    "Senior Software Engineer, AI/ML, AI and Infrastructure",
-    "Software Engineer, GDC Networking, Google Cloud"
+    "Senior Software Engineer, Infrastructure, Google Cloud Compute",
+    "Senior Software Engineer, Infrastructure, Google Cloud Global Networking",
+    "Software Engineer, CE AI Foundations",
+    "Software Engineer III, AI/ML, App Ads Quality"
   ]
 }
